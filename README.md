@@ -16,7 +16,7 @@ Role variables
 | kopia_endpoint_password                      | string  |                                   |                         | secret                 |
 | kopia_log_dir                                | string  |                                   | ~/.cache/kopia          |                        |
 | kopia_cache_directory                        | string  |                                   | ~/.cache/kopia          |                        |
-| kopia_content_cache_size_mb                  | string  |                                   |                         | 5000                   |
+| kopia_content_cache_size_mb                  | integer |                                   |                         | 5000                   |
 
 Example Playbook
 ----------------
