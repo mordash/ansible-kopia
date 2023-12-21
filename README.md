@@ -22,6 +22,18 @@ Example Playbook
 ```
 
 
+Requirement file
+----------------
+#
+# ansible-galaxy -r install requirements.yml
+# or
+# ansible-galaxy install -r requirements.yml
+#
+- src: git+ssh://git@github.com/mordash/ansible-kopia.git
+  version: main
+  name: ansible-kopia
+
+
 License
 -------
 
