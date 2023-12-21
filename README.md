@@ -6,7 +6,7 @@ Role variables
 
 | Variable                                     | Type    | Choices                           | Default                 | Comment         |
 |----------------------------------------------|---------|-----------------------------------|-------------------------|-----------------|
-| kopia_xyz                                    | string  |                                   | xyz                     |                 |
+| kopia_ui_install                             | bool  |                                     | false                   |                 |
 
 
 Example Playbook

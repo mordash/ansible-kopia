@@ -3,13 +3,20 @@
   apt_key:
     url: https://kopia.io/signing-key
 
-- name: Adds apt source
+- name: "Install | Adds apt source"
   apt_repository:
     repo: "deb http://packages.kopia.io/apt/ stable main"
 
-- name: Install kopia & fuse
+- name: "Install | Install kopia & fuse"
   apt:
     pkg:
       - fuse
       - kopia
     state: present
+
+- name: "Install | Install kopia-ui"
+  apt:
+    pkg:
+      - kopia-ui
+    state: present
+  when: kopia_ui_install == true
