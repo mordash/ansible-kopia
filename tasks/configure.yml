@@ -1,1 +1,3 @@
 ---
+- name: "configure | create repository"
+  shell: "kopia repository create s3 --bucket {{ kopia_bucket_name }} --access-key {{ kopia_access_key }} --secret-access-key {{ kopia_secret_access_key }} --endpoint {{ kopia_endpoint }} --password {{ kopia_endpoint_password }} --log-dir {{ kopia_log_dir }} --cache-directory {{ kopia_cache_directory }} {{ ' --content-cache-size-mb {{ kopia_content_cache_size_mb }}' if kopia_content_cache_size_mb else '' }}"
