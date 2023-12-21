@@ -7,6 +7,11 @@
   apt_repository:
     repo: "deb http://packages.kopia.io/apt/ stable main"
 
+- name: "Install | update APT Cache"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
 - name: "Install | Install kopia & fuse"
   apt:
     pkg:
