@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: Jean-Yves Fournier
+  description: Install and configure kopia
+  company: NA
+  license: GPLv3
+  github_branch: main

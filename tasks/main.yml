@@ -1,0 +1,14 @@
+---
+## kopia  install
+- name: 'kopia | install'
+  import_tasks: "install.yml"
+  tags:
+    - kopia
+    - kopia_install
+
+## kopia configure
+- name: 'kopia | configure'
+  import_tasks: "configure.yml"
+  tags:
+    - kopia
+    - kopia_configure
