@@ -6,9 +6,17 @@
     - kopia
     - kopia_install
 
-## kopia configure
-- name: 'kopia | configure'
-  import_tasks: "configure.yml"
+## kopia create repo
+- name: 'kopia | create repo'
+  import_tasks:
+    - install.yml
+    - create_repo.yml
+  tags:
+    - kopia_create_repo
+
+## kopia connect repo
+- name: 'kopia | connect repo'
+  import_tasks: "connect.yml"
   tags:
     - kopia
-    - kopia_configure
+    - kopia_connect
