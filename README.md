@@ -1,13 +1,22 @@
 Kopia
 ==========
 
+This role was used to install and configure kopia with scaleway s3 bucket
+
 Role variables
 --------------
 
-| Variable                                     | Type    | Choices                           | Default                 | Comment         |
-|----------------------------------------------|---------|-----------------------------------|-------------------------|-----------------|
-| kopia_ui_install                             | bool  |                                     | false                   |                 |
-
+| Variable                                     | Type    | Choices                           | Default                 | Example                |
+|----------------------------------------------|---------|-----------------------------------|-------------------------|------------------------|
+| kopia_ui_install                             | bool    |                                   | false                   |                        |
+| kopia_bucket_name                            | string  |                                   |                         | my_bucket              |
+| kopia_access_key                             | string  |                                   |                         | SCW1234                |
+| kopia_secret_access_key                      | string  |                                   |                         | 111-1111-1111-111-1111 |
+| kopia_endpoint                               | string  |                                   | s3.fr-par.scw.cloud     |                        |
+| kopia_endpoint_password                      | string  |                                   |                         | secret                 |
+| kopia_log_dir                                | string  |                                   | ~/.cache/kopia          |                        |
+| kopia_cache_directory                        | string  |                                   | ~/.cache/kopia          |                        |
+| kopia_content_cache_size_mb                  | string  |                                   |                         | 5000                   |
 
 Example Playbook
 ----------------
