@@ -6,6 +6,9 @@
     owner: root
     group: root
     mode: 0600
+  tags:
+    - kopia
+    - kopia_ui
 
 - name: "UI | enable (without starting) kopia_ui services"
   systemd:
@@ -13,6 +16,9 @@
     enabled: yes
     daemon_reload: yes
   ignore_errors: '{{ ansible_check_mode }}'
+  tags:
+    - kopia
+    - kopia_ui
 
 - name: "UI | enable and start kopia timers"
   systemd:
@@ -20,3 +26,6 @@
     enabled: yes
     state: started
   ignore_errors: '{{ ansible_check_mode }}'
+  tags:
+    - kopia
+    - kopia_ui

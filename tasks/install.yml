@@ -2,15 +2,27 @@
 - name: "Install | Adds deb repository"
   apt_key:
     url: https://kopia.io/signing-key
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
 
 - name: "Install | Adds apt source"
   apt_repository:
     repo: "deb http://packages.kopia.io/apt/ stable main"
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
 
 - name: "Install | update APT Cache"
   apt:
     update_cache: yes
     cache_valid_time: 3600
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
 
 - name: "Install | Install kopia & fuse"
   apt:
@@ -18,6 +30,10 @@
       - fuse
       - kopia
     state: present
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
 
 - name: "Install | Install kopia-ui"
   apt:
@@ -25,3 +41,7 @@
       - kopia-ui
     state: present
   when: kopia_ui_install == true
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
