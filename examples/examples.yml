@@ -1,8 +1,10 @@
----
-kopia_ui_install: false
-kopia_log_dir: ~/.cache/kopia
-kopia_cache_directory: ~/.cache/kopia
+kopia_ui_install: true
 
+kopia_directory:
+  - name: var_www
+    path: /var/www
+  - name: mysqldump
+    path: /var/backup
 
 ## cron vars
 kopia_cron_minute: 0

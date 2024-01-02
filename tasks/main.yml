@@ -12,7 +12,7 @@
     - install.yml
     - create_repo.yml
   tags:
-    - kopia_create_repo
+    - kopia_create
 
 ## kopia connect repo
 - name: 'kopia | connect repo'
@@ -20,3 +20,21 @@
   tags:
     - kopia
     - kopia_connect
+
+## kopia ui
+- name: 'kopia ui | add service'
+  import_tasks: "kopia_ui.yml"
+  tags:
+    - kopia
+    - kopia_ui
+  when: kopia_ui_install == true
+
+## kopia crontab
+- name: Include cron.yml
+  include: cron.yml
+  when: kopia_cron is defined
+  tags:
+    - kopia
+    - kopia_connect
+    - kopia_cron
+  when: kopia_cron is defined

@@ -4,9 +4,10 @@ Kopia
 This role was used to install and configure kopia with scaleway s3 bucket
 
 tags :
-- kopia_create_repo for create the repo
+- kopia_create for create the repo
 - kopia for install and connect repo
 - kopia connect just for connect
+- kopia_ui to add service for ui
 
 Role variables
 --------------

@@ -1,0 +1,22 @@
+--
+- name: "UI | add service for ui"
+  template:
+    src: systemd/kopia_ui.service.j2
+    dest: "/etc/systemd/system/kopia_ui.service"
+    owner: root
+    group: root
+    mode: 0600
+
+- name: "UI | enable (without starting) kopia_ui services"
+  systemd:
+    name: kopia_ui
+    enabled: yes
+    daemon_reload: yes
+  ignore_errors: '{{ ansible_check_mode }}'
+
+- name: "UI | enable and start kopia timers"
+  systemd:
+    name: kopia_ui
+    enabled: yes
+    state: started
+  ignore_errors: '{{ ansible_check_mode }}'
