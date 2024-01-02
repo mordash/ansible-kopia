@@ -1,6 +1,6 @@
 ---
 ## crontab
-- name: "connect | add crontab"
+- name: "cron | add crontab"
   cron:
     name: kopia "{{ item.name }}"
     minute: "{{ kopia_cron_minute }}"
