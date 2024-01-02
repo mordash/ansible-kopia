@@ -6,6 +6,7 @@ kopia_cache_directory: ~/.cache/kopia
 
 
 ## cron vars
+kopia_cron_enable: false
 kopia_cron_minute: 0
 kopia_cron_hour: 3
 kopia_cron_day: '*'
