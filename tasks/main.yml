@@ -37,6 +37,5 @@
   when: kopia_cron is defined
   tags:
     - kopia
-    - kopia_connect
     - kopia_cron
   when: kopia_cron is defined

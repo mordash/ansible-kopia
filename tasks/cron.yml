@@ -10,6 +10,6 @@
     cron_file: kopia
   loop: "{{ kopia_directory }}"
   when: kopia_cron_enable is defined
+  tags:
     - kopia
-    - kopia_connect
     - kopia_cron
