@@ -5,12 +5,11 @@
   tags:
     - kopia
     - kopia_install
+    - kopia_create
 
 ## kopia create repo
 - name: 'kopia | create repo'
-  import_tasks:
-    - install.yml
-    - create_repo.yml
+  import_tasks:  "create_repo.yml"
   tags:
     - kopia_create
 

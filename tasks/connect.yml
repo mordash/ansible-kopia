@@ -3,8 +3,9 @@
 - name: "connect | connect repository"
   shell: "kopia repository connect s3 --bucket {{ kopia_bucket_name }} --access-key {{ kopia_access_key }} --secret-access-key {{ kopia_secret_access_key }} --endpoint {{ kopia_endpoint }} --password {{ kopia_endpoint_password }} --log-dir {{ kopia_log_dir }} --cache-directory {{ kopia_cache_directory }} --content-cache-size-mb {{ kopia_content_cache_size_mb }}"
 
-- name: "connect | check repository status"
+- name: "connect | register repository status"
   shell: "kopia repository status"
   register: kopia_status
-- debug:
-  msg: "Kopia Status: {{ kopia_status.stdout }}"
+
+- name : "connect | check repository status"
+  debug: msg="Kopia Status: '{{ kopia_status.stdout }}'"
