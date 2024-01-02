@@ -19,3 +19,33 @@
   tags:
     - kopia
     - kopia_connect
+
+- name: "connect | set upload max"
+  shell: "kopia repository throttle set --upload-bytes-per-second={{ kopia_upload_max }}"
+  when: kopia_upload_max is defined
+  register: kopia_upload_max_reg
+  tags:
+    - kopia
+    - kopia_connect
+- name : "connect | check upload max throttle"
+  debug:
+    var: kopia_upload_max_reg
+  when: kopia_upload_max is defined
+  tags:
+    - kopia
+    - kopia_connect
+
+- name: "connect | register upload max"
+  shell: "kopia repository throttle get"
+  when: kopia_upload_max is defined
+  register: kopia_upload_max_get
+  tags:
+    - kopia
+    - kopia_connect
+- name : "connect | check upload max"
+  debug:
+    var: kopia_upload_max_get
+  when: kopia_upload_max is defined
+  tags:
+    - kopia
+    - kopia_connect
