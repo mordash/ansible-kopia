@@ -1,4 +1,5 @@
 ---
+kopia_create_repo_enable: false
 kopia_ui_install: false
 kopia_log_dir: ~/.cache/kopia
 kopia_cache_directory: ~/.cache/kopia

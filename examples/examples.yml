@@ -1,4 +1,4 @@
-kopia_ui_install: true
+kopia_create_repo_enable: true
 kopia_ui_install: true
 kopia_bucket_name: my_bucket
 kopia_access_key: SCW11111111

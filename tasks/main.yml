@@ -11,7 +11,10 @@
 - name: 'kopia | create repo'
   import_tasks:  "create_repo.yml"
   tags:
+    - kopia
     - kopia_create
+  when:
+    - kopia_create_repo_enable
 
 ## kopia connect repo
 - name: 'kopia | connect repo'
