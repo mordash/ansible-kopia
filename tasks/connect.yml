@@ -15,7 +15,7 @@
 
 - name : "connect | check repository status"
   debug:
-    var: kopia_status
+    var: kopia_status.stdout
   tags:
     - kopia
     - kopia_connect
@@ -29,7 +29,7 @@
     - kopia_connect
 - name : "connect | check upload max throttle"
   debug:
-    var: kopia_upload_max_reg
+    var: kopia_upload_max_reg.stderr_lines
   when: kopia_upload_max is defined
   tags:
     - kopia
@@ -44,7 +44,7 @@
     - kopia_connect
 - name : "connect | check upload max"
   debug:
-    var: kopia_upload_max_get
+    var: kopia_upload_max_get.stdout_lines
   when: kopia_upload_max is defined
   tags:
     - kopia
