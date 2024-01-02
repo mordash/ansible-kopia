@@ -1,4 +1,13 @@
 kopia_ui_install: true
+kopia_ui_install: true
+kopia_bucket_name: my_bucket
+kopia_access_key: SCW11111111
+kopia_secret_access_key: 111111-11111-1111-1111-111111
+kopia_endpoint: s3.fr-par.scw.cloud
+kopia_endpoint_password: toto
+kopia_log_dir: /var/backup_test/kopia/log
+kopia_cache_directory: /var/backup_test/kopia/cache-dir/
+kopia_content_cache_size_mb: 5000
 
 kopia_directory:
   - name: var_www
