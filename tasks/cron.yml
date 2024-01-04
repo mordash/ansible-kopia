@@ -3,12 +3,15 @@
 - name: "cron | add crontab"
   cron:
     name: kopia "{{ item.name }}"
-    minute: "{{ kopia_cron_minute }}"
-    hour: "{{ kopia_cron_hour }}"
-    user: "{{ kopia_cron_user }}"
+    minute: "{{ item.cron.minute }}"
+    hour: "{{ item.cron.hour }}"
+    day: "{{ item.cron.day }}"
+    month: "{{ item.cron.month }}"
+    weekday: "{{ item.cron.weekday }}"
+    user: "{{ item.cron.user }}"
     job: "/usr/bin/kopia snapshot create {{ item.path }}"
     cron_file: kopia
-  loop: "{{ kopia_directory }}"
+  loop: "{{ kopia_cron_directory }}"
   when: kopia_cron_enable is defined
   tags:
     - kopia

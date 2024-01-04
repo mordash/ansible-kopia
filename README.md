@@ -46,16 +46,17 @@ Cron variables example
 --------------
 ```yml
 kopia_cron_enable: true
-kopia_cron_minute: 0
-kopia_cron_hour: 3
-kopia_cron_day: '*'
-kopia_cron_month: '*'
-kopia_cron_num_day: '*'
-kopia_cron_user: 'root'
 
-kopia_directory:
+kopia_cron_directory:
   - name: var_www
     path: /var/www
+    cron:
+      hour: 3
+      minute: 0
+      day: '*'
+      month: '*'
+      weekday: '*'
+      user: root
 ```
 
 
@@ -75,6 +76,7 @@ TODO : refaire cette liste
 | kopia_log_dir                                | string  |                                   | ~/.cache/kopia          |                        |
 | kopia_cache_directory                        | string  |                                   | ~/.cache/kopia          |                        |
 | kopia_content_cache_size_mb                  | integer |                                   |                         | 5000                   |
+| kopia_cron_directory                         | | | | |
 
 Example Playbook
 ----------------
