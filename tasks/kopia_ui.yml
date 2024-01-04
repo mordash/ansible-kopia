@@ -26,6 +26,7 @@
     name: kopia_ui
     enabled: yes
     state: started
+    daemon_reload: yes
   ignore_errors: '{{ ansible_check_mode }}'
   when: kopia_ui_service_start == true
   tags:
