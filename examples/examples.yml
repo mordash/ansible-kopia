@@ -1,5 +1,7 @@
 kopia_create_repo_enable: true
 kopia_ui_install: true
+kopia_ui_service_enable: true
+kopia_ui_service_start: true
 kopia_bucket_name: my_bucket
 kopia_access_key: SCW11111111
 kopia_secret_access_key: 111111-11111-1111-1111-111111
