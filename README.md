@@ -31,10 +31,6 @@ kopia_log_dir: /var/backup_test/kopia/log
 kopia_cache_directory: /var/backup_test/kopia/cache-dir/
 kopia_content_cache_size_mb: 5000
 kopia_upload_max: 20000000
-
-kopia_directory:
-  - name: var_www
-    path: /var/www
 ```
 
 UI variables example
@@ -56,6 +52,10 @@ kopia_cron_day: '*'
 kopia_cron_month: '*'
 kopia_cron_num_day: '*'
 kopia_cron_user: 'root'
+
+kopia_directory:
+  - name: var_www
+    path: /var/www
 ```
 
 
