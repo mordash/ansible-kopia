@@ -17,7 +17,7 @@ kopia_cron_num_day: '*'
 kopia_cron_user: 'root'
 
 # kopia UI
-kopia_ui_username: admin
-kopia_ui_password: super_password
+#kopia_ui_username: admin
+#kopia_ui_password: super_password
 kopia_ui_address: "127.0.0.1:51515"
 kopia_ui_log_dir: /var/log/kopia
