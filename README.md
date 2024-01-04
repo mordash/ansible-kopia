@@ -62,6 +62,8 @@ kopia_cron_user: 'root'
 Role variables
 --------------
 
+TODO : refaire cette liste
+
 | Variable                                     | Type    | Choices                           | Default                 | Example                |
 |----------------------------------------------|---------|-----------------------------------|-------------------------|------------------------|
 | kopia_ui_install                             | bool    |                                   | false                   |                        |
