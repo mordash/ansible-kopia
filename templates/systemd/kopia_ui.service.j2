@@ -7,7 +7,8 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/bin/kopia server start --address {{ kopia_ui_address }} --disable-csrf-token-checks --no-enable-actions --readonly --insecure --log-dir {{ kopia_ui_log_dir }} {% if kopia_ui_username is defined and kopia_ui_password is defined %} --server-username {{ kopia_ui_username }} --server-password {{ kopia_ui_password }} {% else %} --without-password {% endif %}
+ExecStart=/usr/bin/kopia server start --address {{ kopia_ui_address }} --disable-csrf-token-checks --no-enable-actions --readonly --insecure --log-dir {{ kopia_ui_log_dir }}{% if kopia_ui_username is defined and kopia_ui_password is defined %} --server-username {{ kopia_ui_username }} --server-password {{ kopia_ui_password }} {% else %} --without-password {% endif %}
+
 ExecStop=/usr/bin/kopia server shutdownn
 Restart=always
 RestartSec=5
