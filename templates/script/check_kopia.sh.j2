@@ -1,0 +1,42 @@
+#!/bin/bash
+# check if the last backup have more than 24h
+# use check to show the lastest backup status of each backuped folders
+
+# duree limite 24H = 86400
+_duree_limite="86400"
+_date_du_jour=$(date +%s)
+_status="OK"
+
+# check mode
+
+if [ "$1" = "check" ]; then
+for folder in `kopia snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
+  do
+    _date_snap=$(kopia snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    _date_a_verifier=$(date -d "$_date_snap" +%s)
+    _diff_date=$(( $_date_du_jour - $_date_a_verifier))
+
+      if [ $_diff_date -lt $_duree_limite ];then
+          echo -e "le dernier backup du repertoire \e[33m$folder\e[0m a bien moins de 24 Heures"
+          echo -e "\e[32mOK\e[0m"
+        else
+          echo -e "le dernier backup du repertoire \e[33m$folder\e[0m n'a pas moins de 24 Heures"
+          echo -e "\e[31mKO\e[0m"
+      fi
+  done
+  exit 0
+fi
+
+# end check mode
+
+for folder in `kopia snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
+  do
+    _date_snap=$(kopia snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    _date_a_verifier=$(date -d "$_date_snap" +%s)
+    _diff_date=$(( $_date_du_jour - $_date_a_verifier))
+
+      if ! [ $_diff_date -lt $_duree_limite ];then
+	  _status="KO"
+      fi
+  done
+echo $_status

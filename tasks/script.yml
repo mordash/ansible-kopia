@@ -1,0 +1,11 @@
+---
+- name: "Script | add script for check latest backup status"
+  template:
+    src: script/check_kopia.sh.j2
+    dest: "/usr/local/bin/check_kopia.sh"
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - kopia
+    - kopia_script

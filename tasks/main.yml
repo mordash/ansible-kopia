@@ -34,8 +34,15 @@
 ## kopia crontab
 - name: Include cron.yml
   include: cron.yml
-  when: kopia_cron is defined
   tags:
     - kopia
     - kopia_cron
   when: kopia_cron_enable is defined
+
+## kopia script
+- name: Include script.yml
+  include: script.yml
+  tags:
+    - kopia
+    - kopia_script
+  when: kopia_script_enable is defined
