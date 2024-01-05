@@ -8,6 +8,11 @@ tags :
 - kopia_ui to add service for ui
 - kopia_create for init the repo (just run once)
 - kopia connect just for connect to the repo
+- kopia cron just for add crontab
+- kopia script just for add scriptt
+
+# kopia script
+kopia_script_enable: false
 
 If your backend is not initialysed, you need to add this var on the first run : ```kopia_create_repo_enable: true```, then remove it
 
@@ -19,7 +24,7 @@ kopia_ui_service_enable: true
 kopia_ui_service_start: true
 ```
 
-Backend variables example on scaleway FR
+Bucket variables example on scaleway FR
 --------------
 ```yml
 kopia_bucket_name: my_bucket
@@ -59,6 +64,11 @@ kopia_cron_directory:
       user: root
 ```
 
+Script variables example
+--------------
+```yml
+kopia_script_enable: true
+```
 
 Role variables
 --------------
