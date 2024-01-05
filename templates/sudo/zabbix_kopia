@@ -1,1 +1,1 @@
-zabbix ALL = (ALL) NOPASSWD : /bin/bash /usr/local/bin/check_kopia.sh
+zabbix ALL = (ALL) NOPASSWD : /usr/local/bin/check_kopia.sh
