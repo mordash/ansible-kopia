@@ -9,3 +9,14 @@
   tags:
     - kopia
     - kopia_script
+
+- name: "Script | add sudo rigth for zabbix"
+  copy:
+    src: sudo/zabbix_kopia
+    dest: "/etc/sudoers.d/zabbix_kopia"
+    owner: root
+    group: root
+    mode: 0440
+  tags:
+    - kopia
+    - kopia_script
