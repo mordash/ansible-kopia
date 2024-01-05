@@ -11,7 +11,7 @@
     - kopia_script
 
 - name: "Script | add sudo rigth for zabbix"
-  copy:
+  template:
     src: sudo/zabbix_kopia
     dest: "/etc/sudoers.d/zabbix_kopia"
     owner: root
