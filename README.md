@@ -4,12 +4,12 @@ Kopia
 This role was used to install and configure kopia with scaleway s3 bucket
 
 tags :
-- kopia for install and connect repo
-- kopia_ui to add service for ui
-- kopia_create for init the repo (just run once)
-- kopia connect just for connect to the repo
-- kopia cron just for add crontab
-- kopia script just for add scriptt
+- ```kopia``` for install and connect repo
+- ```kopia_ui``` to add service for ui
+- ```kopia_create``` for init the repo (just run once)
+- ```kopia_connect``` just for connect to the repo
+- ```kopia_cron``` just for add crontab
+- ```kopia_script``` for add scriptt, and zabbix misc
 
 # kopia script
 kopia_script_enable: false
