@@ -15,7 +15,7 @@
 
 - name : "connect | check repository status"
   debug:
-    var: kopia_status.stdout
+    var: kopia_status
   tags:
     - kopia
     - kopia_connect
