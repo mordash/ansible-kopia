@@ -35,6 +35,7 @@ kopia_endpoint_password: toto
 kopia_log_dir: /var/backup_test/kopia/log
 kopia_cache_directory: /var/backup_test/kopia/cache-dir/
 kopia_content_cache_size_mb: 5000
+kopia_metadata_cache_size_mb: 5000
 kopia_upload_max: 20000000
 ```
 
@@ -68,6 +69,7 @@ Script variables example
 --------------
 ```yml
 kopia_script_enable: true
+kopia_zabbix_enable: false
 ```
 
 Role variables
@@ -86,7 +88,11 @@ TODO : refaire cette liste
 | kopia_log_dir                                | string  |                                   | ~/.cache/kopia          |                        |
 | kopia_cache_directory                        | string  |                                   | ~/.cache/kopia          |                        |
 | kopia_content_cache_size_mb                  | integer |                                   |                         | 5000                   |
-| kopia_cron_directory                         | | | | |
+| kopia_metadata_cache_size_mb                 | integer | | | 2000 |
+| kopia_cron_directory                         | integer | | | 2000 |
+| kopia_script_enable                          | bool | true/false | false |  |
+| kopia_zabbix_enable                          | bool | true/false | false |  |
+
 
 Example Playbook
 ----------------

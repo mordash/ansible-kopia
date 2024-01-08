@@ -18,3 +18,4 @@ kopia_ui_log_dir: /var/log/kopia
 
 # kopia script
 kopia_script_enable: false
+kopia_zabbix_enable: false

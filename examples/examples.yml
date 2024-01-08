@@ -10,6 +10,7 @@ kopia_endpoint_password: toto
 kopia_log_dir: /var/backup_test/kopia/log
 kopia_cache_directory: /var/backup_test/kopia/cache-dir/
 kopia_content_cache_size_mb: 5000
+kopia_metadata_cache_size_mb: 5000
 kopia_upload_max: 20000000
 
 ## cron vars
@@ -42,3 +43,4 @@ kopia_ui_log_dir: /var/log/kopia
 
 # kopia script
 kopia_script_enable: true
+kopia_zabbix_enable: true

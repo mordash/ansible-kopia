@@ -17,6 +17,7 @@
     owner: root
     group: root
     mode: 0440
+  when: kopia_zabbix_enable is defined
   tags:
     - kopia
     - kopia_script
