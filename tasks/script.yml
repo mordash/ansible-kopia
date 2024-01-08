@@ -21,3 +21,16 @@
   tags:
     - kopia
     - kopia_script
+
+- name: "Script | add cron to purge zabbix cli log and content log kopia cache"
+  cron:
+    name: kopia_purge_log"
+    minute: "0"
+    hour: "9"
+    user: root
+    job: '/usr/bin/find /root/.cache/kopia/ -mtime +1 -type f -name "kopia*list*.log" -delete'
+    cron_file: kopia_purge_log
+  when: kopia_zabbix_enable is defined
+  tags:
+    - kopia
+    - kopia_script
