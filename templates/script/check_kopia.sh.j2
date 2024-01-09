@@ -1,6 +1,9 @@
 #!/bin/bash
-# check if the last backup have more than 24h
-# use check to show the lastest backup status of each backuped folders
+## debug
+# set -x
+
+## check if the last backup have more than 24h
+## use check to show the lastest backup status of each backuped folders
 
 # duree limite 24H = 86400
 _duree_limite="86400"
@@ -9,10 +12,13 @@ _status="OK"
 
 # check mode
 
+KOPIA_CONFIG_PATH="/root/.config/kopia/repository.config"
+KOPIA_BIN='/usr/bin/kopia --log-dir="{{ kopia_log_dir }}"'
+
 if [ "$1" = "check" ]; then
-for folder in `kopia snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
+for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
   do
-    _date_snap=$(kopia snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
     if [ -z "$_date_snap" ];then
       _status="KO"
       echo -e "il manque un backup pour le repertoire \e[33m$folder\e[0m"
@@ -36,9 +42,9 @@ fi
 
 # end check mode
 
-for folder in `kopia snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
+for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
   do
-    _date_snap=$(kopia snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
       if [ -z "$_date_snap" ];then
         _status="KO"
         else
