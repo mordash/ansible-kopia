@@ -75,6 +75,8 @@ kopia_zabbix_enable: false
 
 Exclude variables example
 --------------
+will create list of exclude in a file .kopiaignore on declared path
+for more information, go on kopia doc : https://kopia.io/docs/advanced/kopiaignore/#kopiaignore-files
 ```yml
 kopia_exclude_list:
   - path: /

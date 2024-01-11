@@ -46,6 +46,8 @@ kopia_script_enable: true
 kopia_zabbix_enable: true
 
 # exclude list
+# will create list of exclude in a file .kopiaignore on declared path
+# for more information, go on kopia doc : https://kopia.io/docs/advanced/kopiaignore/#kopiaignore-files
 kopia_exclude_list:
   - path: /
     exclude:
