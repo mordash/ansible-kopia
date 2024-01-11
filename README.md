@@ -10,6 +10,7 @@ tags :
 - ```kopia_connect``` just for connect to the repo
 - ```kopia_cron``` just for add crontab
 - ```kopia_script``` for add scriptt, and zabbix misc
+- ```kopia_exclude``` for add exclude
 
 # kopia script
 kopia_script_enable: false
@@ -71,6 +72,36 @@ Script variables example
 kopia_script_enable: true
 kopia_zabbix_enable: false
 ```
+
+Exclude variables example
+--------------
+```yml
+kopia_exclude_list:
+  - path: /
+    exclude:
+      - /var/lib/bareos
+      - /dev
+      - /media
+      - /mnt
+      - /proc
+      - /run/docker
+      - /sys
+      - /tmp
+      - /var/cache
+      - /var/tmp
+      - /var/lib/mongodb
+      - /var/lib/mysql
+      - /var/lib/postgresql
+      - /var/lib/redis
+      - /var/lib/solr
+      - /var/lib/elasticsearch
+      - /var/spool/postfix
+      - /VMs
+      - /.journal
+      - /.fsck
+      - /zpve
+```
+
 
 Role variables
 --------------

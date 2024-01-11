@@ -1,0 +1,5 @@
+{% if kopia_exclude_list is iterable %}
+{% for exclude in item.exclude -%}
+{{ exclude }}
+{% endfor %}
+{% endif %}

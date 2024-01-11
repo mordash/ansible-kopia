@@ -44,3 +44,29 @@ kopia_ui_log_dir: /var/log/kopia
 # kopia script
 kopia_script_enable: true
 kopia_zabbix_enable: true
+
+# exclude list
+kopia_exclude_list:
+  - path: /
+    exclude:
+      - /var/lib/bareos
+      - /dev
+      - /media
+      - /mnt
+      - /proc
+      - /run/docker
+      - /sys
+      - /tmp
+      - /var/cache
+      - /var/tmp
+      - /var/lib/mongodb
+      - /var/lib/mysql
+      - /var/lib/postgresql
+      - /var/lib/redis
+      - /var/lib/solr
+      - /var/lib/elasticsearch
+      - /var/spool/postfix
+      - /VMs
+      - /.journal
+      - /.fsck
+      - /zpve
