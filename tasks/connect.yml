@@ -62,3 +62,15 @@
   tags:
     - kopia
     - kopia_exclude
+
+- name: "kopia | make repo readonly"
+  lineinfile:
+    path: /root/.config/kopia/repository.config
+    insertafter: '"username":'
+    line: '  "readonly": true,'
+    regexp: '  "readonly":'
+    backrefs: yes
+  when: kopia_repo_readonly is defined
+  tags:
+    - kopia
+    - kopia_connect
