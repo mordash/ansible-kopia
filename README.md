@@ -127,6 +127,8 @@ TODO : refaire cette liste
 | kopia_script_enable                          | bool | true/false | false |  |
 | kopia_zabbix_enable                          | bool | true/false | false |  |
 | kopia_repo_readonly                          | bool | true/false | false |  |
+| kopia_ui_insecure                            | bool | true/false | true |  |
+| kopia_ui_disable_csrf_token_checks           | bool | true/false | true |  |
 
 Example Playbook
 ----------------

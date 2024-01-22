@@ -15,6 +15,8 @@ kopia_cron_enable: false
 #kopia_ui_password: super_password
 kopia_ui_address: "127.0.0.1:51515"
 kopia_ui_log_dir: /var/log/kopia
+kopia_ui_insecure: true
+kopia_ui_disable_csrf_token_checks: true
 
 # kopia script
 kopia_script_enable: false
