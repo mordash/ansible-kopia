@@ -70,7 +70,7 @@
     line: '  "readonly": true,'
     regexp: '  "readonly":'
     backrefs: yes
-  when: kopia_repo_readonly is defined
+  when: kopia_repo_readonly == true
   tags:
     - kopia
     - kopia_connect

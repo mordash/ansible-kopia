@@ -12,7 +12,7 @@
     job: "/usr/bin/kopia snapshot create {{ item.path }}"
     cron_file: kopia
   loop: "{{ kopia_cron_directory }}"
-  when: kopia_cron_enable is defined
+  when: kopia_cron_enable == true
   tags:
     - kopia
     - kopia_cron

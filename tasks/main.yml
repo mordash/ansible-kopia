@@ -14,7 +14,7 @@
     - kopia
     - kopia_create
   when:
-    - kopia_create_repo_enable
+    - kopia_create_repo_enable == true
 
 ## kopia connect repo
 - name: 'kopia | connect repo'
