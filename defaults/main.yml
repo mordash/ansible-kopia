@@ -1,8 +1,6 @@
 ---
 kopia_create_repo_enable: false
-kopia_ui_install: false
-kopia_ui_service_enable: false
-kopia_ui_service_start: false
+
 kopia_log_dir: ~/.cache/kopia
 kopia_cache_directory: ~/.cache/kopia
 kopia_repo_readonly: false
@@ -11,6 +9,9 @@ kopia_repo_readonly: false
 kopia_cron_enable: false
 
 # kopia UI
+kopia_ui_install: false
+kopia_ui_service_enable: false
+kopia_ui_service_start: false
 #kopia_ui_username: admin
 #kopia_ui_password: super_password
 kopia_ui_address: "127.0.0.1:51515"

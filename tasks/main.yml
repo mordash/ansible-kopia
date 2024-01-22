@@ -29,7 +29,7 @@
   tags:
     - kopia
     - kopia_ui
-  when: kopia_ui_install is defined
+  when: kopia_ui_install == true
 
 ## kopia crontab
 - name: Include cron.yml
@@ -37,7 +37,7 @@
   tags:
     - kopia
     - kopia_cron
-  when: kopia_cron_enable is defined
+  when: kopia_cron_enable == true
 
 ## kopia script
 - name: Include script.yml
@@ -45,4 +45,4 @@
   tags:
     - kopia
     - kopia_script
-  when: kopia_script_enable is defined
+  when: kopia_script_enable == true

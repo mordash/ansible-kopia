@@ -44,10 +44,16 @@ kopia_repo_readonly: false
 UI variables example
 --------------
 ```yml
+kopia_ui_install: true
+kopia_ui_service_enable: true
+kopia_ui_service_start: true
 kopia_ui_username: admin
 kopia_ui_password: super_password
 kopia_ui_address: "127.0.0.1:51515"
 kopia_ui_log_dir: /var/log/kopia
+kopia_ui_insecure: true
+kopia_ui_disable_csrf_token_checks: true
+
 ```
 
 Cron variables example
