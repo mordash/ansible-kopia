@@ -1,8 +1,7 @@
 ---
 ## retention
 - name: "Retention | add global retention"
-  shell: "kopia policy set --global --keep-latest {{ item.keep_latest }} --keep-hourly {{ item.keep_hourly }} --keep-daily {{ item.keep_daily }} --keep-weekly {{ item.keep_weekly }} --keep-monthly {{ item.keep_monthly }} --keep-annual {{ item.keep_annual }}"
-  loop: "{{ kopia_global_retention }}"
+  shell: "kopia policy set --global --keep-latest {{ kopia_global_retention['keep_latest'] }} --keep-hourly {{ kopia_global_retention['keep_hourly'] }} --keep-daily {{ kopia_global_retention['keep_daily'] }} --keep-weekly {{ kopia_global_retention['keep_weekly'] }} --keep-monthly {{ kopia_global_retention['keep_monthly'] }} --keep-annual {{ kopia_global_retention['keep_annual'] }}"
   when: kopia_global_retention is defined
   tags:
     - kopia
