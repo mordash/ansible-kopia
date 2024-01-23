@@ -8,7 +8,7 @@
     - kopia
     - kopia_global_retention
 
-- name: "Retention | show global policy"
+- name: "Retention | register global policy"
   shell: "kopia policy show --global --json | jq .retention"
   when: kopia_global_retention is defined
   register: kopia_global_retention_reg
