@@ -23,6 +23,30 @@
     - kopia
     - kopia_connect
 
+## kopia repo readonly
+- name: 'kopia | make repo readonly'
+  import_tasks: "readonly.yml"
+  tags:
+    - kopia
+    - kopia_readonly
+  when: kopia_repo_readonly == true
+
+## kopia exclude list
+- name: 'kopia | add exclude list file'
+  import_tasks: "exclude.yml"
+  tags:
+    - kopia
+    - kopia_exclude
+  when: kopia_exclude_list is defined
+
+## kopia retention global
+- name: 'kopia | change global retention'
+  import_tasks: "retention.yml"
+  tags:
+    - kopia
+    - kopia_global_retention
+  when: kopia_global_retention is defined
+
 ## kopia ui
 - name: 'kopia ui | add service'
   import_tasks: "kopia_ui.yml"

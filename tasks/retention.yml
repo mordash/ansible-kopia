@@ -1,0 +1,24 @@
+---
+## retention
+- name: "Retention | add global retention"
+  shell: "kopia policy set --global --keep-latest {{ item.keep-latest }} --keep-hourly {{ item.keep-hourly }} --keep-daily {{ item.keep-daily }} --keep-weekly {{ item.keep-weekly }} --keep-monthly {{ item.keep-monthly }} --keep-annual {{ item.keep-annual }}"
+  loop: "{{ kopia_global_retention }}"
+  when: kopia_global_retention is defined
+  tags:
+    - kopia
+    - kopia_global_retention
+
+- name: "Retention | show global policy"
+  shell: "kopia policy show --global --json | jq .retention"
+  when: kopia_global_retention is defined
+  register: kopia_global_retention_reg
+  tags:
+    - kopia
+    - kopia_global_retention
+- name : "Retention | show global policy"
+  debug:
+    var: kopia_global_retention_reg.stdout_lines
+  when: kopia_global_retention is defined
+  tags:
+    - kopia
+    - kopia_global_retention

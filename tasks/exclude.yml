@@ -1,0 +1,13 @@
+---
+- name: "kopia | copy kopiaignore list in path backuped"
+  template:
+    src: excludes.list.j2
+    dest: "{{ item.path }}/.kopiaignore"
+    owner: root
+    group: root
+    mode: 0644
+  loop: "{{ kopia_exclude_list }}"
+  when: kopia_exclude_list is defined
+  tags:
+    - kopia
+    - kopia_exclude

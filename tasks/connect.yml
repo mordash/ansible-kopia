@@ -20,7 +20,7 @@
     - kopia
     - kopia_connect
 
-- name: "connect | set upload max"
+- name: "connect | set upload max bytes"
   shell: "kopia repository throttle set --upload-bytes-per-second={{ kopia_upload_max }}"
   when: kopia_upload_max is defined
   register: kopia_upload_max_reg
@@ -46,30 +46,6 @@
   debug:
     var: kopia_upload_max_get.stdout_lines
   when: kopia_upload_max is defined
-  tags:
-    - kopia
-    - kopia_connect
-
-- name: "kopia | copy kopiaignore list in path backuped"
-  template:
-    src: excludes.list.j2
-    dest: "{{ item.path }}/.kopiaignore"
-    owner: root
-    group: root
-    mode: 0644
-  loop: "{{ kopia_exclude_list }}"
-  when: kopia_exclude_list is defined
-  tags:
-    - kopia
-    - kopia_exclude
-
-- name: "kopia | make repo readonly"
-  lineinfile:
-    path: /root/.config/kopia/repository.config
-    insertafter: '"username":'
-    line: '  "readonly": true,'
-    regexp: '  "readonly":'
-  when: kopia_repo_readonly == true
   tags:
     - kopia
     - kopia_connect

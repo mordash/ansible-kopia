@@ -11,6 +11,9 @@ tags :
 - ```kopia_cron``` just for add crontab
 - ```kopia_script``` for add scriptt, and zabbix misc
 - ```kopia_exclude``` for add exclude
+- ```kopia_readonly``` for make repo readonly
+- ```kopia_global_retention``` for change global retention
+
 
 # kopia script
 kopia_script_enable: false
@@ -109,6 +112,19 @@ kopia_exclude_list:
       - /.journal
       - /.fsck
       - /zpve
+```
+
+Retention variables example
+--------------
+
+```yml
+kopia_global_retention:
+  keep-latest: 10
+  keep-hourly: 48
+  keep-daily: 7
+  keep-weekly: 4
+  keep-monthly: 24
+  keep-annual: 3
 ```
 
 

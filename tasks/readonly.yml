@@ -1,0 +1,11 @@
+---
+- name: "kopia | make repo readonly"
+  lineinfile:
+    path: /root/.config/kopia/repository.config
+    insertafter: '"username":'
+    line: '  "readonly": true,'
+    regexp: '  "readonly":'
+  when: kopia_repo_readonly == true
+  tags:
+    - kopia
+    - kopia_connect

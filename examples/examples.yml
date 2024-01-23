@@ -48,6 +48,15 @@ kopia_ui_disable_csrf_token_checks: true
 kopia_script_enable: true
 kopia_zabbix_enable: true
 
+# retention
+kopia_global_retention:
+  keep-latest: 10
+  keep-hourly: 48
+  keep-daily: 7
+  keep-weekly: 4
+  keep-monthly: 24
+  keep-annual: 3
+
 # exclude list
 # will create list of exclude in a file .kopiaignore on declared path
 # for more information, go on kopia doc : https://kopia.io/docs/advanced/kopiaignore/#kopiaignore-files
