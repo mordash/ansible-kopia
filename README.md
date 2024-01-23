@@ -119,12 +119,12 @@ Retention variables example
 
 ```yml
 kopia_global_retention:
-  keep-latest: 10
-  keep-hourly: 48
-  keep-daily: 7
-  keep-weekly: 4
-  keep-monthly: 24
-  keep-annual: 3
+  keep_latest: 10
+  keep_hourly: 48
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 24
+  keep_annual: 3
 ```
 
 
