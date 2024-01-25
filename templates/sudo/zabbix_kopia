@@ -1,1 +1,1 @@
-zabbix ALL = (ALL) NOPASSWD : /usr/local/bin/check_kopia.sh
+zabbix ALL = (ALL) NOPASSWD : /usr/bin/find /tmp/ -name kopia-mount*, /usr/local/bin/check_kopia.sh
