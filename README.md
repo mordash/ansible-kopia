@@ -179,6 +179,13 @@ Requirement file
   name: ansible-kopia
 ```
 
+TODO
+----------------
+- ajouter de la compression
+```
+kopia policy set --global --compression=zstd
+```
+
 License
 -------
 
