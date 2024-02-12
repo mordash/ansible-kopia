@@ -44,7 +44,16 @@ fi
 
 for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
   do
-    _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    # check des snap en error
+      _check_error=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | grep 'error')
+      if ! [ -z "$_check_error" ];then
+        _status="ERROR SNAP ON PATH $folder"
+        #echo "$_check_error"
+        echo $_status
+        exit 1
+      fi
+    # check date
+      _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
       if [ -z "$_date_snap" ];then
         _status="KO"
         else
@@ -53,12 +62,6 @@ for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -
       fi
       if ! [ $_diff_date -lt $_duree_limite ];then
         _status="KO"
-      fi
-# check des snap en error
-    _check_error=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | grep 'error')
-      if ! [ -z "$_check_error" ];then
-        _status="ERROR ON SNAP"
-	#echo "$_check_error"
       fi
   done
 echo $_status
