@@ -13,7 +13,7 @@ _status="OK"
 # check mode
 
 KOPIA_CONFIG_PATH="/root/.config/kopia/repository.config"
-KOPIA_BIN='/usr/bin/kopia --log-dir="{{ kopia_log_dir }}"'
+KOPIA_BIN='/usr/bin/kopia --log-dir="/var/backup_kopia/kopia/log"'
 
 if [ "$1" = "check" ]; then
 for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
@@ -42,16 +42,20 @@ fi
 
 # end check mode
 
-for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
+$KOPIA_BIN snapshot ls > /tmp/kopia_snap_ls
+
+# check des snap en error
+_check_error=$(grep 'error' /tmp/kopia_snap_ls)
+if ! [ -z "$_check_error" ];then
+  _status="ERROR ON SNAP"
+  #echo "$_check_error"
+  echo $_status
+  exit 1
+fi
+
+
+for folder in `grep $HOSTNAME /tmp/kopia_snap_ls |awk '{print $1}' | cut -d ':' -f2`
   do
-    # check des snap en error
-      _check_error=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | grep 'error')
-      if ! [ -z "$_check_error" ];then
-        _status="ERROR SNAP ON PATH $folder"
-        #echo "$_check_error"
-        echo $_status
-        exit 1
-      fi
     # check date
       _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
       if [ -z "$_date_snap" ];then
@@ -64,4 +68,4 @@ for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -
         _status="KO"
       fi
   done
-echo $_status
+echo $_status    
