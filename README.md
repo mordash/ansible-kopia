@@ -9,7 +9,7 @@ tags :
 - ```kopia_create``` for init the repo (just run once)
 - ```kopia_connect``` just for connect to the repo
 - ```kopia_cron``` just for add crontab
-- ```kopia_script``` for add scriptt, and zabbix misc
+- ```kopia_script``` for add scriptt
 - ```kopia_exclude``` for add exclude
 - ```kopia_readonly``` for make repo readonly
 - ```kopia_global_retention``` for change global retention
@@ -80,7 +80,6 @@ Script variables example
 --------------
 ```yml
 kopia_script_enable: true
-kopia_zabbix_enable: false
 ```
 
 Exclude variables example
@@ -147,7 +146,6 @@ TODO : refaire cette liste
 | kopia_metadata_cache_size_mb                 | integer | | | 2000 |
 | kopia_cron_directory                         | integer | | | 2000 |
 | kopia_script_enable                          | bool | true/false | false |  |
-| kopia_zabbix_enable                          | bool | true/false | false |  |
 | kopia_repo_readonly                          | bool | true/false | false |  |
 | kopia_ui_insecure                            | bool | true/false | true |  |
 | kopia_ui_disable_csrf_token_checks           | bool | true/false | true |  |

@@ -46,12 +46,13 @@ $KOPIA_BIN snapshot ls > /tmp/kopia_snap_ls
 
 # check des snap en error
 _check_error=$(grep 'error' /tmp/kopia_snap_ls)
-if ! [ -z "$_check_error" ];then
-  _status="ERROR ON SNAP"
-  #echo "$_check_error"
-  echo $_status
-  exit 1
-fi
+      if ! [ -z "$_check_error" ];then
+        _status="ERROR ON SNAP"
+        #echo "$_check_error"
+        echo $_status
+        echo "$_status" > /tmp/kopia_status
+        exit 1
+      fi
 
 
 for folder in `grep $HOSTNAME /tmp/kopia_snap_ls |awk '{print $1}' | cut -d ':' -f2`
@@ -60,12 +61,16 @@ for folder in `grep $HOSTNAME /tmp/kopia_snap_ls |awk '{print $1}' | cut -d ':' 
       _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
       if [ -z "$_date_snap" ];then
         _status="KO"
+        echo "$_status" > /tmp/kopia_status
         else
         _date_a_verifier=$(date -d "$_date_snap" +%s)
         _diff_date=$(( $_date_du_jour - $_date_a_verifier))
       fi
       if ! [ $_diff_date -lt $_duree_limite ];then
         _status="KO"
+        echo "$_status" > /tmp/kopia_status
       fi
   done
-echo $_status    
+
+echo $_status
+echo "$_status" > /tmp/kopia_status

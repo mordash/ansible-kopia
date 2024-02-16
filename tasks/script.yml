@@ -6,18 +6,24 @@
     owner: root
     group: root
     mode: 0755
+  when: kopia_script_enable == true
   tags:
     - kopia
     - kopia_script
 
-- name: "Script | add sudo rigth for zabbix"
-  template:
-    src: sudo/zabbix_kopia
-    dest: "/etc/sudoers.d/zabbix_kopia"
-    owner: root
-    group: root
-    mode: 0440
-  when: kopia_zabbix_enable == true
+- name: "Script | add crontab for script"
+  cron:
+    name: kopia check script and store result into /tmp/kopia_status
+    minute: "{{ kopia_script_cron_minute }}"
+    hour: "{{ kopia_script_cron_hour }}"
+    day: "{{ kopia_script_cron_day }}"
+    month: "{{ kopia_script_cron_month }}"
+    weekday: "{{ kopia_script_cron_weekday }}"
+    user: "{{ kopia_script_cron_user }}"
+    job: "/usr/local/bin/check_kopia.sh"
+    cron_file: kopia
+  when:
+    - kopia_script_enable == true
   tags:
     - kopia
     - kopia_script

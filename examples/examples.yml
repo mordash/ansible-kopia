@@ -46,7 +46,12 @@ kopia_ui_disable_csrf_token_checks: true
 
 # kopia script
 kopia_script_enable: true
-kopia_zabbix_enable: true
+kopia_script_cron_minute: 0
+kopia_script_cron_hour: 8
+kopia_script_cron_day: '*'
+kopia_script_cron_month: '*'
+kopia_script_cron_weekday: '*'
+kopia_script_cron_user: 'root'
 
 # retention
 kopia_global_retention:

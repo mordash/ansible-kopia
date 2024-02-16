@@ -1,1 +1,0 @@
-zabbix ALL = (ALL) NOPASSWD : /usr/local/bin/check_kopia.sh
