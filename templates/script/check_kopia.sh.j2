@@ -45,7 +45,7 @@ fi
 $KOPIA_BIN snapshot ls > /tmp/kopia_snap_ls
 
 # check des snap en error
-_check_error=$(grep 'error' /tmp/kopia_snap_ls)
+_check_error=$(grep 'error' /tmp/kopia_snap_ls | grep 'latest-1')
       if ! [ -z "$_check_error" ];then
         _status="ERROR ON SNAP"
         #echo "$_check_error"
