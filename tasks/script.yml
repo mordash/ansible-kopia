@@ -32,6 +32,7 @@
   cron:
     name: kopia check script and store result into /tmp/kopia_status
     special_time: reboot
+    user: root
     job: "/usr/local/bin/check_kopia.sh >/dev/null 2>&1"
     cron_file: kopia
   when:
