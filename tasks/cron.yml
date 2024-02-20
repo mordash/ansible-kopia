@@ -9,7 +9,7 @@
     month: "{{ item.cron.month }}"
     weekday: "{{ item.cron.weekday }}"
     user: "{{ item.cron.user }}"
-    job: "/usr/bin/kopia snapshot create {{ item.path }}"
+    job: "/usr/bin/kopia snapshot create {{ item.path }} >/dev/null 2>&1"
     cron_file: kopia
   loop: "{{ kopia_cron_directory }}"
   when: kopia_cron_enable == true

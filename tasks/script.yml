@@ -20,7 +20,7 @@
     month: "{{ kopia_script_cron_month }}"
     weekday: "{{ kopia_script_cron_weekday }}"
     user: "{{ kopia_script_cron_user }}"
-    job: "/usr/local/bin/check_kopia.sh"
+    job: "/usr/local/bin/check_kopia.sh >/dev/null 2>&1"
     cron_file: kopia
   when:
     - kopia_script_enable == true
