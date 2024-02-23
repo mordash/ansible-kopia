@@ -9,7 +9,7 @@ User=root
 Group=root
 ExecStart=/usr/bin/kopia server start --address {{ kopia_ui_address }}{% if kopia_ui_disable_csrf_token_checks == true %} --disable-csrf-token-checks {% endif %} --no-enable-actions --readonly{% if kopia_ui_insecure == true %} --insecure {% endif %}--log-dir {{ kopia_ui_log_dir }}{% if kopia_ui_username is defined and kopia_ui_password is defined %} --server-username {{ kopia_ui_username }} --server-password {{ kopia_ui_password }} {% else %} --without-password {% endif %}
 
-ExecStop=/usr/bin/kopia server shutdownn
+ExecStop=/bin/kill -TERM $MAINPID
 Restart=always
 RestartSec=5
 
