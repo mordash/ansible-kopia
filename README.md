@@ -26,6 +26,8 @@ If you want install, enable the ui service or start the ui service use :
 kopia_ui_install: true
 kopia_ui_service_enable: true
 kopia_ui_service_start: true
+kopia_ui_systemd_user: root
+kopia_ui_systemd_group: root
 ```
 
 Bucket variables example on scaleway FR
@@ -149,6 +151,9 @@ TODO : refaire cette liste
 | kopia_repo_readonly                          | bool | true/false | false |  |
 | kopia_ui_insecure                            | bool | true/false | true |  |
 | kopia_ui_disable_csrf_token_checks           | bool | true/false | true |  |
+| kopia_ui_systemd_user | string  |  | root | |
+| kopia_ui_systemd_group | string  |  | root | |
+| kopia_ui_config_file | string | |  |  /root/.config/kopia/repository.config |
 
 Example Playbook
 ----------------
