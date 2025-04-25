@@ -14,20 +14,11 @@ tags :
 - ```kopia_readonly``` for make repo readonly
 - ```kopia_global_retention``` for change global retention
 
+# First run
 
-# kopia script
-kopia_script_enable: false
-
-If your backend is not initialysed, you need to add this var on the first run : ```kopia_create_repo_enable: true```, then remove it
-
-If you want install, enable the ui service or start the ui service use :
-
-```yml
-kopia_ui_install: true
-kopia_ui_service_enable: true
-kopia_ui_service_start: true
-kopia_ui_systemd_user: root
-kopia_ui_systemd_group: root
+If your backend is not initialysed, you need to add this extra var on the first run : ```kopia_create_repo_enable=true```
+```bash
+ansible-playbook playbooks/my_server.yml -t kopia -e kopia_create_repo_enable=true -DC
 ```
 
 Bucket variables example on scaleway FR
@@ -52,6 +43,8 @@ UI variables example
 kopia_ui_install: true
 kopia_ui_service_enable: true
 kopia_ui_service_start: true
+kopia_ui_systemd_user: root
+kopia_ui_systemd_group: root
 kopia_ui_username: admin
 kopia_ui_password: super_password
 kopia_ui_address: "127.0.0.1:51515"
