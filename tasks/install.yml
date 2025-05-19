@@ -10,6 +10,7 @@
 - name: "Install | Adds apt source"
   apt_repository:
     repo: "deb http://packages.kopia.io/apt/ stable main"
+    filename: kopia
   tags:
     - kopia
     - kopia_install
