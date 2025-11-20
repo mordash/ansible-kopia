@@ -1,7 +1,19 @@
 ---
-- name: "Install | Adds deb repository"
-  apt_key:
+- name: "Install | Create keyrings directory"
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+  tags:
+    - kopia
+    - kopia_install
+    - kopia_create
+
+- name: "Install | Download Kopia GPG key"
+  get_url:
     url: https://kopia.io/signing-key
+    dest: /etc/apt/keyrings/kopia-keyring.gpg
+    mode: '0644'
   tags:
     - kopia
     - kopia_install
@@ -9,7 +21,7 @@
 
 - name: "Install | Adds apt source"
   apt_repository:
-    repo: "deb http://packages.kopia.io/apt/ stable main"
+    repo: "deb [signed-by=/etc/apt/keyrings/kopia-keyring.gpg] http://packages.kopia.io/apt/ stable main"
     filename: kopia
   tags:
     - kopia

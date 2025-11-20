@@ -56,7 +56,7 @@
 
 ## kopia crontab
 - name: Include cron.yml
-  include: cron.yml
+  import_tasks: cron.yml
   tags:
     - kopia
     - kopia_cron
@@ -64,7 +64,7 @@
 
 ## kopia script
 - name: Include script.yml
-  include: script.yml
+  import_tasks: script.yml
   tags:
     - kopia
     - kopia_script

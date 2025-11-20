@@ -28,6 +28,19 @@
     - kopia
     - kopia_script
 
+- name: "Script | add crontab at reboot for script"
+  cron:
+    name: kopia check script and store result into /tmp/kopia_status after reboot
+    special_time: reboot
+    user: "{{ kopia_script_cron_user }}"
+    job: "/usr/local/bin/check_kopia.sh >/dev/null 2>&1"
+    cron_file: kopia
+  when:
+    - kopia_script_enable == true
+  tags:
+    - kopia
+    - kopia_script
+
 - name: "Script | add crontab for script at reboot"
   cron:
     name: kopia check script and store result into /tmp/kopia_status after reboot
