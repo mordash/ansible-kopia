@@ -18,7 +18,7 @@ KOPIA_BIN='/usr/bin/kopia --log-dir="/var/backup_kopia/kopia/log"'
 if [ "$1" = "check" ]; then
 for folder in `$KOPIA_BIN snapshot ls | grep $HOSTNAME |awk '{print $1}' | cut -d ':' -f2`
   do
-    _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+    _date_snap=$($KOPIA_BIN snapshot ls -l $folder | grep 'latest-1,' | awk '{print $1,$2}')
     if [ -z "$_date_snap" ];then
       _status="KO"
       echo -e "il manque un backup pour le repertoire \e[33m$folder\e[0m"
@@ -58,7 +58,7 @@ _check_error=$(grep 'error' /tmp/kopia_snap_ls | grep 'latest-1')
 for folder in `grep $HOSTNAME /tmp/kopia_snap_ls |awk '{print $1}' | cut -d ':' -f2`
   do
     # check date
-      _date_snap=$($KOPIA_BIN snapshot ls $folder | grep 'latest-1,' | awk '{print $1,$2}')
+      _date_snap=$($KOPIA_BIN snapshot ls -l $folder | grep 'latest-1,' | awk '{print $1,$2}')
       if [ -z "$_date_snap" ];then
         _status="KO"
         echo "$_status" > /tmp/kopia_status
