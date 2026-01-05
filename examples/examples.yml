@@ -15,6 +15,7 @@ kopia_cron_enable: true
 kopia_cron_directory:
   - name: var_www
     path: /var/www
+    parallel: 5
     cron:
       hour: 3
       minute: 0
@@ -91,3 +92,13 @@ kopia_exclude_list:
       - /.journal
       - /.fsck
       - /zpve
+      - "*.tmp"
+      - "*.cache"
+      - "*.log"
+      - "node_modules/"
+      - "__pycache__/"
+      - ".git/"
+      - "*/tmp/**"
+      - "*/cache/**"
+      - "*/upload/temp/**"
+      - "*/uploads/temp/**"
